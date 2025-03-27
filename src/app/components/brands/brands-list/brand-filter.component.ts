@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {BrandService} from '../../../services/brand.service';
 import {Brand} from '../../../models/brand.model';
 import {NgForOf} from '@angular/common';
@@ -22,6 +22,9 @@ import {MatInputModule} from '@angular/material/input';
 export class BrandFilterComponent implements OnInit {
   brands: Brand[] = [];
   selectedBrand: number | null = null;
+  @Output() selectedBrandEvent = new EventEmitter<number | null>();
+
+
   constructor(protected brandService: BrandService) {
   }
 
@@ -32,5 +35,9 @@ export class BrandFilterComponent implements OnInit {
       }
     )
   }
+
+  updateSelectedBrand = (brandId: number) => {
+    this.selectedBrandEvent.emit(brandId)
+  };
 
 }

@@ -1,0 +1,44 @@
+@if (moto) {
+  <div  id="container">
+    <mat-grid-list cols="4" >
+      <mat-grid-tile>
+        <div class="first-column">
+          <img src="{{moto.imageUrl}}">
+
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" >
+        <div  class="middle-column">
+          <div class="model-name">
+            {{moto.model.brand.name}} {{moto.model.name}}
+          </div>
+          <div class="generation-name">
+            {{moto.name}}
+          </div>
+          <div class="generation-year">
+            {{moto.startYear}} - {{moto.endYear}}
+          </div>
+          <div class="generation-year">
+            {{moto.price | currency: 'EUR': 'symbol': '2.0-2'}}
+          </div>
+
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="last-column">
+          <button class="favorite-button" mat-fab extended matTooltip="Ajouter aux favoris">
+            <mat-icon>favorite</mat-icon>
+            Favoris
+          </button>
+          <button class="owned-button" mat-button  >J'ai possédé cette moto</button>
+
+        </div>
+
+      </mat-grid-tile>
+
+
+    </mat-grid-list>
+
+
+  </div>
+}

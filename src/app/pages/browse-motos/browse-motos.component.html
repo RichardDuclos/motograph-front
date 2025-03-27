@@ -1,12 +1,19 @@
-<div class="filter-container">
-  <app-brand-filter />
+<div class="page-container">
+  <div class="filter-container">
+    <app-brand-filter (selectedBrandEvent)="brandFilterUpdated($event)"/>
+    Année de production
+    <mat-slider min="1960" max="2025" discrete>
+      <input [(value)]="minYear" matSliderStartThumb>
+      <input [(value)]="maxYear" matSliderEndThumb>
+    </mat-slider>
+    Cylindrée
+    <mat-slider min="50" max="1600" discrete (change)="updateMotoList()">
+      <input [(value)]="minCyl" matSliderStartThumb>
+      <input [(value)]="maxCyl" matSliderEndThumb>
+    </mat-slider>
+  </div>
+  <app-motos-list [motoList]="motoList"/>
 
-  <mat-slider min="1960" max="2025" discrete>
-    <input [(value)]="minYear" matSliderStartThumb>
-    <input [(value)]="maxYear" matSliderEndThumb>
-  </mat-slider>
+
 </div>
-
-
-
 

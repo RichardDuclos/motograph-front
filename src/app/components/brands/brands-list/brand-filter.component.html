@@ -1,8 +1,8 @@
 <div>
   <mat-form-field>
     <mat-label>Filtrer par marque</mat-label>
-    <mat-select [(value)]="selectedBrand">
-      <mat-option>---</mat-option>
+    <mat-select [(value)]="selectedBrand" (selectionChange)="updateSelectedBrand($event.value)">
+      <mat-option value="{{null}}">---</mat-option>
       <mat-option *ngFor="let brand of brands" value="{{brand.id}}">{{ brand.name }}</mat-option>
     </mat-select>
   </mat-form-field>
